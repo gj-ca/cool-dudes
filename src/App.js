@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import NewUser from './NewUser.js'
+import CoolDudes from './CoolDudes.js'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+            users: [
+                {
+                    name: "Glen",
+                    age: "28",
+                    email: "glen@email.com"
+                }, 
+                {
+                    name: "Paul",
+                    age: "19",
+                    email: "paul@email.com"
+                }, 
+                {
+                    name: "Luke",
+                    age: "30",
+                    email: "luke@email.com"
+                }, 
+            ]
+        }
+    }
+
+    pushToUsersList = (newUserData) => {
+        const newUsers = this.state.users
+        newUsers.push(newUserData)
+        this.setState({users: newUsers})
+    }
+
+    render() {
+        return (
+           <div>
+               <CoolDudes users={this.state.users} />
+               <NewUser pushToUsersList={this.pushToUsersList} />
+           </div>
+       )
+    }
 }
 
-export default App;
+export default App
