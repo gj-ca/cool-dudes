@@ -8,9 +8,9 @@ class App extends React.Component {
         this.state = {
             users: [
                 {
-                    name: "Glen",
-                    age: "28",
-                    email: "glen@email.com"
+                    name: "John",
+                    age: "21",
+                    email: "john@email.com"
                 }, 
                 {
                     name: "Paul",
